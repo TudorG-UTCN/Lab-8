@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ro">
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="stil.css">
+<title> Index Site-uri </title>
+</head>
+<body>
+<div class="slideshow-container" style="display: flex; align-items: center; justify-content: space-between;">
+  
+  <div class="slide">
+    <a href="pagini/Site_TudorGligan.html">
+      <img src="imagini/Untitled.png" alt="Tudor Gligan" style="width:450px; max-height:450px;">
+      <div class="text-nume">>>>Cel Mai Bun Site EVER (Tudor Gligan)</div>
+    </a>
+  </div>
+
+  <div class="slide">
+    <a href="pagini/Prezentare_KissLuca.html">
+      <img src="imagini/eu.png" alt="Kiss Luca" style="width:450px; max-height:450px;">
+      <div class="text-nume">>>>Site-ul Domnului Kiss Luca</div>
+    </a>
+  </div>
+
+  <div class="slide">
+    <a href="pagini/Cotoara_Alexandru_Cristian_catalog.html">
+      <img src="imagini/imagine.jpg" alt="Cotoară Alexandru" style="width:450px; max-height:450px;">
+      <div class="text-nume">>>>Site-ul Domnului Cotoară Alexandru</div>
+    </a>
+  </div>
+  <img src="imagini/imagine_noua_2.jpg" alt="amuzant_2" style="max-width:550px; max-height:539px;">
+ <img src="imagini/imagine_noua.jpg" alt="amuzant" style="max-width:550px; max-height:550px;">
+</div>
+<br>
+<p> Toți ne concentrăm atenția spre disciplinele de bază, precum IA,CCP și PC. Accentul principal cade pe dezvoltarea abilităților noastre practice, înțelegerea materiei și pregătirea pentru o carieră în acest domeniu. În afara cursurilor, interesul nostru comun principal este muzica. </p>
+<script>
+
+let slideIndex = 0;
+let timerVar; 
+function afiseazaSlideuri() {
+    let i;
+    let slideuri = document.getElementsByClassName("slide");
+    for (i = 0; i < slideuri.length; i++) {
+        slideuri[i].style.display = "none";  
+    }
+    
+    
+    slideIndex++;
+    if (slideIndex > slideuri.length) { slideIndex = 1 }    
+    
+    
+    slideuri[slideIndex - 1].style.display = "block";  
+    
+    timerVar = setTimeout(afiseazaSlideuri, 3000); 
+}
+
+document.addEventListener('keydown', function(event) {
+    let slideuri = document.getElementsByClassName("slide");
+    
+    if(event.key === "ArrowLeft" || event.key === "ArrowRight") {
+        clearTimeout(timerVar); 
+        
+        slideuri[slideIndex - 1].style.display = "none";
+        
+        if(event.key === "ArrowLeft") {
+            slideIndex--;
+            if (slideIndex < 1) { slideIndex = slideuri.length; }
+        } else if(event.key === "ArrowRight") {
+            slideIndex++;
+            if (slideIndex > slideuri.length) { slideIndex = 1; }
+        }
+        
+        slideuri[slideIndex - 1].style.display = "block";
+        
+        timerVar = setTimeout(afiseazaSlideuri, 3000);
+    }
+});
+
+afiseazaSlideuri();
+</script>
+</body>
+</html>
